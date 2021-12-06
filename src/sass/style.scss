@@ -30,35 +30,36 @@ Author URI: https://blueboat.com.au
   -moz-osx-font-smoothing: grayscale;
 }
 
-html{
+html {
   font-size: 16px;
 }
 
-body{
+body {
   overflow-x: hidden;
   font-family: $font-default;
   color: $colour-font-default;
   font-size: 1rem;
   line-height: 135%;
   font-weight: 400;
-  &.no-scroll{
+
+  &.no-scroll {
     overflow: hidden;
   }
 }
 
-.site-wrapper{
+.site-wrapper {
   overflow: hidden;
 }
 
-.full-height{
+.full-height {
   min-height: 100vh;
 }
 
-.almost-full-height{
+.almost-full-height {
   min-height: 80vh;
 }
 
-.some-height{
+.some-height {
   min-height: 60vh;
 }
 
@@ -69,8 +70,8 @@ body{
   transition-delay: 0.3s;
 }
 
-body.loaded{
-  #main-wrapper{
+body.loaded {
+  #main-wrapper {
     opacity: 1;
   }
 }
@@ -78,18 +79,63 @@ body.loaded{
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-
-
-.content-style{
-  p{
-    margin-bottom: 1rem;
+.lyrics{
+  font-size: 54px;
+  line-height: 100%;
+  font-family: $font-serif;
+  text-align: center;
+  span{
+    font-size: 100px;
+    line-height: 115%;
+    font-family: $font-block;
+    display: block;
+    text-transform: uppercase;
   }
 }
+
 
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
 
+canvas {
+  border-top-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.clicker {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.slider {
+  height: 500px;
+  width: 800px;
+  position: relative;
+  &__titles{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    *{
+      max-width: 730px;
+      padding: 15px 30px;
+      margin: 0 auto;
+    }
+  }
+}
 
 /*--------------------------------------------------------------
 # Navigation

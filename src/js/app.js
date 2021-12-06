@@ -1,6 +1,6 @@
 import './_app/polyfills'
 import {waitForFinalEvent, matches} from "./_app/helpers.js"
-import {setupCanvas} from "./_app/canvas.js"
+import { setupMultiCanvas } from './_app/multiCanvas';
 
 //run all init scripts
 const loadHandler = () => {
@@ -14,7 +14,7 @@ const loadHandler = () => {
 document.addEventListener("DOMContentLoaded", loadHandler)
 
 window.onload = function(){
-  setupCanvas()
+  setupMultiCanvas()
 }
 
 

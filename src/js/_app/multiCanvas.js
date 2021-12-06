@@ -5,7 +5,7 @@ export const setupMultiCanvas = () => {
 
 // planetary
 let sketch = new Sketch({
-	debug: true,
+	// debug: true,
 	uniforms: {
 		intensity: {value: 1, type:'f', min:0., max:3}
 	},

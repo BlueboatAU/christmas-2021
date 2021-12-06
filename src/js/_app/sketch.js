@@ -1,6 +1,3 @@
-import * as THREE from 'three';
-import { gsap } from "gsap";
-
 export class Sketch {
     constructor(opts) {
       this.scene = new THREE.Scene();
@@ -42,7 +39,7 @@ export class Sketch {
       this.initiate(()=>{
         console.log(this.textures);
         this.setupResize();
-        // this.settings();
+        this.settings();
         this.addObjects();
         this.resize();
         this.clickEvent();
@@ -69,14 +66,8 @@ export class Sketch {
     }
   
     clickEvent(){
-      this.clicker.addEventListener('click',(event)=>{
-        let pos = event.clientY
-        let halfHeight = window.innerHeight / 2
-        if(pos > halfHeight){
-            this.prev();
-        } else {
-            this.next();
-        }
+      this.clicker.addEventListener('click',()=>{
+        this.next();
       })
     }
     settings() {
@@ -179,11 +170,11 @@ export class Sketch {
       let len = this.textures.length;
       let nextTexture =this.textures[(this.current +1)%len];
       this.material.uniforms.texture2.value = nextTexture;
-      let tl = gsap.timeline();
+      let tl = gsap.timeline()
       tl.to(this.material.uniforms.progress,{
+       duration: this.duration,
         value:1,
         ease: this.easing,
-        duration: this.duration,
         onComplete:()=>{
           console.log('FINISH');
           this.current = (this.current +1)%len;
@@ -192,27 +183,6 @@ export class Sketch {
           this.isRunning = false;
       }})
     }
-
-    prev(){
-        if(this.isRunning) return;
-        this.isRunning = true;
-        let len = this.textures.length;
-        let nextTexture =this.textures[(this.current+len-1)%len];
-        this.material.uniforms.texture2.value = nextTexture;
-        let tl = gsap.timeline();
-        tl.to(this.material.uniforms.progress,{
-          value:1,
-          ease: this.easing,
-          duration: this.duration,
-          onComplete:()=>{
-            console.log('FINISH');
-            this.current = (this.current -1)%len;
-            this.material.uniforms.texture1.value = nextTexture;
-            this.material.uniforms.progress.value = 0;
-            this.isRunning = false;
-        }})
-      }
-
     render() {
       if (this.paused) return;
       this.time += 0.05;
@@ -231,3 +201,4 @@ export class Sketch {
       this.renderer.render(this.scene, this.camera);
     }
   }
+  

@@ -1,5 +1,7 @@
 import './_app/polyfills'
 import {waitForFinalEvent, matches} from "./_app/helpers.js"
+// import * as THREE from 'three';
+// import { gsap } from "gsap";
 import { setupMultiCanvas } from './_app/multiCanvas';
 
 //run all init scripts

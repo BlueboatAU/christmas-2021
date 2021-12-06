@@ -1,0 +1,102 @@
+/*!
+Title: A Hugo Site by Studio Blueboat
+Author: Studio Blueboat
+Author URI: https://blueboat.com.au
+*/
+
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+// @import "bootstrap/scss/bootstrap";
+// @import "normalize-scss/sass/normalize";
+// @import "normalize-scss/sass/normalize/import-now";
+// @import "bootstrap/scss/bootstrap";
+@import "_sass/reset.scss";
+@import "_sass/boostrap";
+
+
+//BB Imports
+@import "_sass/mixins";
+@import "_sass/variables";
+
+
+
+/*--------------------------------------------------------------
+# Globals & Helpers
+--------------------------------------------------------------*/
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html{
+  font-size: 16px;
+}
+
+body{
+  overflow-x: hidden;
+  font-family: $font-default;
+  color: $colour-font-default;
+  font-size: 1rem;
+  line-height: 135%;
+  font-weight: 400;
+  &.no-scroll{
+    overflow: hidden;
+  }
+}
+
+.site-wrapper{
+  overflow: hidden;
+}
+
+.full-height{
+  min-height: 100vh;
+}
+
+.almost-full-height{
+  min-height: 80vh;
+}
+
+.some-height{
+  min-height: 60vh;
+}
+
+
+#main-wrapper {
+  opacity: 0;
+  @include transition(0.5s);
+  transition-delay: 0.3s;
+}
+
+body.loaded{
+  #main-wrapper{
+    opacity: 1;
+  }
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+
+.content-style{
+  p{
+    margin-bottom: 1rem;
+  }
+}
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/

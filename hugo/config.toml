@@ -1,0 +1,14 @@
+baseURL = "https://christmas2021.blueboat.com.au/"
+languageCode = "en-au"
+title = "Summer tracks | Curated by Blueboat."
+
+disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+
+# [taxonomies]
+#   category = "categories"
+
+[params]
+  description = "Turn up the volume. Sit back. Enjoy."
+
+[permalinks]
+  posts = "/:section/:title/"

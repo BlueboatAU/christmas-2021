@@ -1,22 +1,21 @@
 import './_app/polyfills'
 import {waitForFinalEvent, matches} from "./_app/helpers.js"
-// import "smooth-scroll";
+import {setupCanvas} from "./_app/canvas.js"
 
 //run all init scripts
 const loadHandler = () => {
 
-  // //smooths scrollings
-  // new SmoothScroll('a[href*="#"]', {
-  //   speed: 1000,
-  //   offset: 50,
-  //   easing: 'easeInOutCubic',
-  // });
+  
 
   document.querySelector('body').classList.add('loaded');
 
 }
 
 document.addEventListener("DOMContentLoaded", loadHandler)
+
+window.onload = function(){
+  setupCanvas()
+}
 
 
 //run all scripts on resize

@@ -18,8 +18,8 @@ var css = {
 	sassOpts: {
 		outputStyle: "nested",
 		precision: 3,
-    errLogToConsole: true,
-    includePaths: ['node_modules']
+		errLogToConsole: true,
+		includePaths: ['node_modules']
 	},
 	processors: [
 		require("autoprefixer"),
@@ -58,7 +58,7 @@ gulp.task("scripts", () => {
 							presets: ['@babel/preset-env'],
 							exclude: 'node_modules/**'
 						}),
-						uglify.uglify(), 
+						// uglify.uglify(), 
 					],
 				},
 				{

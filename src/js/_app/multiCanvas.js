@@ -4,7 +4,7 @@ import {Sketch} from './sketch'
 export const setupMultiCanvas = () => {
 
 // planetary
-let sketch = new Sketch({
+	window.sketch = new Sketch({
 	// debug: true,
 	uniforms: {
 		intensity: {value: 1, type:'f', min:0., max:3}

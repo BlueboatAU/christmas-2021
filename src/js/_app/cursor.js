@@ -39,9 +39,25 @@ const updateCursor = () => {
 
     if(mouseY < halfHeight){
         gsap.to(inner,{rotation: 180})
+        if(window.sketch){
+            if(window.sketch.current === 0){
+                gsap.to(inner, {autoAlpha: 0})
+            } else {
+                gsap.to(inner, {autoAlpha: 1})
+            }
+        }
     } else {
         gsap.to(inner,{rotation: 0})
+        if(window.sketch){
+            if(window.sketch.current > 2){
+                gsap.to(inner, {autoAlpha: 0})
+            } else {
+                gsap.to(inner, {autoAlpha: 1})
+            }
+        }
     }
+
     
+
     window.requestAnimationFrame(updateCursor)
 }

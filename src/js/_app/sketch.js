@@ -24,6 +24,7 @@ export class Sketch {
     this.height = this.container.offsetHeight;
     this.containerWrap.appendChild(this.renderer.domElement);
     this.slides = this.container.querySelectorAll('.slider__title')
+    this.nav = document.querySelectorAll('.nav__item')
 
     this.camera = new THREE.PerspectiveCamera(
       70,
@@ -39,7 +40,7 @@ export class Sketch {
 
     this.paused = true;
     this.initiate(()=>{
-      console.log(this.textures);
+      // console.log(this.textures);
       this.setupResize();
       this.settings();
       this.addObjects();
@@ -188,13 +189,13 @@ export class Sketch {
      duration: this.duration,
       value:1,
       ease: this.easing,
-      onComplete:()=>{
-        console.log('FINISH');
+      onStart: () => {
         this.current = (this.current +1)%len;
-        this.setSlide()
+        this.hideSlides()
+      },
+      onComplete:()=>{
         this.material.uniforms.texture1.value = nextTexture;
         this.material.uniforms.progress.value = 0;
-        this.isRunning = false;
     }})
   }
 
@@ -209,26 +210,53 @@ export class Sketch {
       value:1,
       ease: this.easing,
       duration: this.duration,
-      onComplete:()=>{
-        console.log('FINISH');
+      onStart: () => {
         this.current = (this.current+len-1)%len;
-        this.setSlide()
+        this.hideSlides()
+      },
+      onComplete:()=>{
         this.material.uniforms.texture1.value = nextTexture;
         this.material.uniforms.progress.value = 0;
-        this.isRunning = false;
     }})
+  }
+
+  hideSlides(){
+    let that = this;
+    this.slides.forEach(function(slide, index) {
+      slide.classList.add('hidden')
+    })
+    // console.log('hide')
+    setTimeout(function(){
+      that.setSlide()
+    }, 350)
   }
 
   setSlide() {
     let that = this
     this.slides.forEach(function(slide, index) {
       if(index == that.current){
-        console.log(index, that.current)
         slide.classList.add('slider__title--current')
       } else {
         slide.classList.remove('slider__title--current')
       }
     })
+    this.nav.forEach(function(nav, index) {
+      if(index == that.current){
+        nav.classList.add('current')
+      } else {
+        nav.classList.remove('current')
+      }
+    })
+    setTimeout(function(){
+      that.showSlides()
+    }, 100)
+  }
+
+  showSlides(){
+    this.slides.forEach(function(slide, index) {
+      slide.classList.remove('hidden')
+    })
+    this.isRunning = false;
   }
   
   render() {

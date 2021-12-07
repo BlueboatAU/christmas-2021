@@ -10,7 +10,6 @@ import { blotterSetup } from './_app/blotter'
 const loadHandler = () => {
 
   followCursor()
-  
 
 }
 

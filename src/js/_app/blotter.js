@@ -99,8 +99,8 @@ let winsize;
             })
 
             if(window.innerWidth > 768){
-                imgTranslations.x = MathUtils.lerp(imgTranslations.x, MathUtils.lineEq(40, -40, winsize.width, 0, relmousepos.x), 0.03);
-                imgTranslations.y = MathUtils.lerp(imgTranslations.y, MathUtils.lineEq(40, -40, winsize.height, 0, relmousepos.y), 0.03);
+                imgTranslations.x = MathUtils.lerp(imgTranslations.x, MathUtils.lineEq(40, -40, winsize.width, 0, relmousepos.x), 0.02);
+                imgTranslations.y = MathUtils.lerp(imgTranslations.y, MathUtils.lineEq(40, -40, winsize.height, 0, relmousepos.y), 0.02);
                 canvas.style.transform = `translateX(${(imgTranslations.x)}px) translateY(${imgTranslations.y}px)`;
             } else {
                 canvas.style.transform = `translateX(0px) translateY(0px)`;

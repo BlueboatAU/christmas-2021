@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", loadHandler)
 window.onload = function(){
   setupMultiCanvas()
   blotterSetup()
-  document.querySelector('body').classList.add('loaded');
 }
 
 

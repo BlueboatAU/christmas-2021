@@ -73,9 +73,13 @@ export class Sketch {
       let pos = event.clientY
       let halfHeight = window.innerHeight / 2
       if(pos > halfHeight){
-        this.next();
+        if(this.current < this.slides.length - 1){
+          this.next();
+        }
       } else {
-        this.prev();
+        if(this.current > 0){
+          this.prev();
+        }
       }
     })
   }

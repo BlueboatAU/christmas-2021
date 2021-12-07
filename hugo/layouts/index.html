@@ -1,8 +1,15 @@
 {{ define "main" }}
+
+{{ range .Site.Data.lyrics.lyrics }}
+{{ $.Scratch.Add "imgs" (slice .img) }}
+{{ end }}
+
+
+
 <div class="clicker">
 
 
-      <div class="slider" data-images='["/image-1.jpg","/image-2.jpg","/image-3.jpg", "/image-2.jpg"]'>
+      <div class="slider" data-images='["{{ delimit ($.Scratch.Get "imgs") "\", \"" }}"]'>
 
         <div class="slider__canvas"></div>
 

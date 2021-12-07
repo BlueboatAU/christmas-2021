@@ -45,6 +45,7 @@ export class Sketch {
       this.resize();
       this.clickEvent();
       this.play();
+      document.querySelector('body').classList.add('loaded');
     })
     
 

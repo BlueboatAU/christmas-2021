@@ -35,10 +35,10 @@ const updateCursor = () => {
 
     gsap.to(cursor, {x: mouseX, y: mouseY})
 
-    let halfHeight = window.innerHeight / 2
+    let halfWidth = window.innerWidth / 2
 
-    if(mouseY < halfHeight){
-        gsap.to(inner,{rotation: 180})
+    if(mouseX < halfWidth){
+        gsap.to(inner,{rotation: 90})
         if(window.sketch){
             if(window.sketch.current === 0){
                 gsap.to(inner, {autoAlpha: 0})
@@ -47,7 +47,7 @@ const updateCursor = () => {
             }
         }
     } else {
-        gsap.to(inner,{rotation: 0})
+        gsap.to(inner,{rotation: -90})
         if(window.sketch){
             if(window.sketch.current > 2){
                 gsap.to(inner, {autoAlpha: 0})

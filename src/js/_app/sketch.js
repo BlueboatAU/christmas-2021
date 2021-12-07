@@ -71,9 +71,9 @@ export class Sketch {
 
   clickEvent(){
     this.clicker.addEventListener('click',(event)=>{
-      let pos = event.clientY
-      let halfHeight = window.innerHeight / 2
-      if(pos > halfHeight){
+      let pos = event.clientX
+      let halfWidth = window.innerWidth / 2
+      if(pos > halfWidth){
         if(this.current < this.slides.length - 1){
           this.next();
         }

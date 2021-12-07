@@ -30,3 +30,5 @@ gulp, babel and sass for asset creation
 hugo for static site generation
 
 bootstrap for SASS boilerplate
+
+[Web GL Transitions](https://github.com/akella/webGLImageTransitions)

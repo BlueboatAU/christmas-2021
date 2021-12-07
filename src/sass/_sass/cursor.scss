@@ -1,0 +1,28 @@
+$cursor-size: 70px;
+
+.cursor{
+    position: fixed;
+    top: -#{$cursor-size / 2};
+    left: -#{$cursor-size / 2};
+    width: $cursor-size;
+    height: $cursor-size;
+    user-select: none;
+    pointer-events: none;
+    border-radius: $cursor-size;
+    z-index: 102;
+    background: none;
+    border: 2px solid $colour-light-red;
+    // transform: scale(0.125);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: #{$cursor-size * 0.21};
+    @include media-breakpoint-down(sm){
+      display: none;
+    }
+    span{
+        position: absolute;
+        z-index: 103;
+    }
+  }

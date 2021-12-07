@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Italiana&family=Karla:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
 
   <!--Stylesheets-->
   {{ $style := resources.Get "dist/css/style.css" | fingerprint }}
@@ -35,7 +36,11 @@
 
   </div>
 
+  <div class="cursor"><div class="cursor__inner"><svg fill="none" height="32" viewBox="0 0 24 32" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m24 20.02-1.33-1.36-9.72 9.71v-28.37000048l-1.9-.00000009v28.37000057l-9.73-9.71-1.32000088 1.36 12.00000088 11.98z" fill="#dd4e34"/></svg></div></div>
+
 <!--Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/blotter.min.js" integrity="sha512-Na4qwz8+Hb6JAVf8zFKtPri3XX/Z9/drSpFQuA9hUDnSYLFuu+GU0sfyDYw0SIUkvo/gSw//hCW/CjFJmIIc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/materials/liquidDistortMaterial.min.js" integrity="sha512-GrkvJ9sGocxZwnbbhWFPlMxIeFz6pJFZ3I3CFUpn7o7v8hROUyXxfgyB6bLYM8Z8W5J1e5Z91Y/PbNBpjhufCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
   {{ $scripts := resources.Get "dist/js/app.js" | fingerprint }}

@@ -10,7 +10,7 @@ import { blotterSetup } from './_app/blotter'
 const loadHandler = () => {
 
   followCursor()
-  document.querySelector('body').classList.add('loaded');
+  
 
 }
 
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", loadHandler)
 window.onload = function(){
   setupMultiCanvas()
   blotterSetup()
+  document.querySelector('body').classList.add('loaded');
 }
 
 

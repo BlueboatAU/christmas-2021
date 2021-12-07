@@ -40,10 +40,8 @@ let winsize;
     let mousePos = {x: winsize.width/2, y: winsize.height/2};
     window.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
 
-    // const imgs = [...document.querySelectorAll('.content__img')];
     const canvas = document.querySelector('.slider__canvas')
     const allTitles = document.querySelectorAll('.slider__title')
-    // const imgsTotal = imgs.length;
     let imgTranslations = {x: 0, y: 0};
 
     const elem = document.querySelectorAll('.blotter');
@@ -51,8 +49,11 @@ let winsize;
     
     const createBlotterText = () => {
 
+
+        //create each blotter
         elem.forEach(function(el){
             let textEl = el.querySelector('.blotter__inner');
+            let textElStyle = window.getComputedStyle(textEl);
 
             let text = new Blotter.Text(textEl.innerHTML.toUpperCase(), {
                 family : "'Days One', sans-serif",
@@ -62,7 +63,7 @@ let winsize;
                 paddingRight: 100,
                 paddingTop: 100,
                 paddingBottom: 100,
-                fill : 'black'
+                fill : textElStyle.getPropertyValue('color')
             });
         
             const material = new Blotter.LiquidDistortMaterial();
@@ -76,10 +77,6 @@ let winsize;
             scope.appendTo(textEl);
 
         })
-
-        console.log(blotters)
-
-        
         
         let lastMousePosition = {x: winsize.width/2, y: winsize.height/2};
         let volatility = 0;
@@ -101,9 +98,13 @@ let winsize;
                 }
             })
 
-            imgTranslations.x = MathUtils.lerp(imgTranslations.x, MathUtils.lineEq(40, -40, winsize.width, 0, relmousepos.x), 0.03);
-            imgTranslations.y = MathUtils.lerp(imgTranslations.y, MathUtils.lineEq(40, -40, winsize.height, 0, relmousepos.y), 0.03);
-            canvas.style.transform = `translateX(${(imgTranslations.x)}px) translateY(${imgTranslations.y}px)`;
+            if(window.innerWidth > 768){
+                imgTranslations.x = MathUtils.lerp(imgTranslations.x, MathUtils.lineEq(40, -40, winsize.width, 0, relmousepos.x), 0.03);
+                imgTranslations.y = MathUtils.lerp(imgTranslations.y, MathUtils.lineEq(40, -40, winsize.height, 0, relmousepos.y), 0.03);
+                canvas.style.transform = `translateX(${(imgTranslations.x)}px) translateY(${imgTranslations.y}px)`;
+            } else {
+                canvas.style.transform = `translateX(0px) translateY(0px)`;
+            }
     
             lastMousePosition = {x: relmousepos.x, y: relmousepos.y};
             requestAnimationFrame(render);

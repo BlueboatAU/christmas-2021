@@ -42,32 +42,44 @@ let winsize;
 
     // const imgs = [...document.querySelectorAll('.content__img')];
     const canvas = document.querySelector('.slider__canvas')
+    const allTitles = document.querySelectorAll('.slider__title')
     // const imgsTotal = imgs.length;
     let imgTranslations = {x: 0, y: 0};
 
-    const elem = document.querySelector('.blotter');
-    const textEl = elem.querySelector('.blotter__inner');
+    const elem = document.querySelectorAll('.blotter');
+    const blotters = []
     
     const createBlotterText = () => {
-        const text = new Blotter.Text(textEl.innerHTML, {
-            family : "'Days One', sans-serif",
-            weight: 900,
-            size : 100,
-            paddingLeft: 100,
-            paddingRight: 100,
-            paddingTop: 100,
-            paddingBottom: 100,
-            fill : 'black'
-        });
-    
-        const material = new Blotter.LiquidDistortMaterial();
-        material.uniforms.uSpeed.value = 1;
-        material.uniforms.uVolatility.value = 0;
-        material.uniforms.uSeed.value = 0.1;
-        const blotter = new Blotter(material, {texts: text});
-        const scope = blotter.forText(text);
-        textEl.innerHTML = '';
-        scope.appendTo(textEl);
+
+        elem.forEach(function(el){
+            let textEl = el.querySelector('.blotter__inner');
+
+            let text = new Blotter.Text(textEl.innerHTML.toUpperCase(), {
+                family : "'Days One', sans-serif",
+                weight: 900,
+                size : 100,
+                paddingLeft: 100,
+                paddingRight: 100,
+                paddingTop: 100,
+                paddingBottom: 100,
+                fill : 'black'
+            });
+        
+            const material = new Blotter.LiquidDistortMaterial();
+            material.uniforms.uSpeed.value = 1;
+            material.uniforms.uVolatility.value = 0;
+            material.uniforms.uSeed.value = 0.1;
+            const blotter = new Blotter(material, {texts: text});
+            blotters.push(blotter)
+            const scope = blotter.forText(text);
+            textEl.innerHTML = '';
+            scope.appendTo(textEl);
+
+        })
+
+        console.log(blotters)
+
+        
         
         let lastMousePosition = {x: winsize.width/2, y: winsize.height/2};
         let volatility = 0;
@@ -78,7 +90,16 @@ let winsize;
             const mouseDistance = MathUtils.distance(lastMousePosition.x, relmousepos.x, lastMousePosition.y, relmousepos.y);
             
             volatility = MathUtils.lerp(volatility, Math.min(MathUtils.lineEq(0.9, 0, 100, 0, mouseDistance),0.9), 0.05);
-            material.uniforms.uVolatility.value = volatility;
+
+            let currentBlotterIndex = Array.prototype.indexOf.call(allTitles, document.querySelector('.slider__title--current'));
+
+            blotters.forEach(function(blotter, index){
+                if(currentBlotterIndex >= 0 && index === currentBlotterIndex){
+                    blotter.material.uniforms.uVolatility.value = volatility;
+                } else {
+                    blotter.material.uniforms.uVolatility.value = 0;
+                }
+            })
 
             imgTranslations.x = MathUtils.lerp(imgTranslations.x, MathUtils.lineEq(40, -40, winsize.width, 0, relmousepos.x), 0.03);
             imgTranslations.y = MathUtils.lerp(imgTranslations.y, MathUtils.lineEq(40, -40, winsize.height, 0, relmousepos.y), 0.03);

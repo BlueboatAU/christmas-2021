@@ -138,8 +138,12 @@ body.loaded {
     padding: 15px 30px;
     margin: 0 auto;
     text-align: center;
+    display: none;
     h2{
       margin-bottom: 35px;
+    }
+    &--current{
+      display: block;
     }
   }
 }

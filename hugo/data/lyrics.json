@@ -1,0 +1,27 @@
+{
+    "lyrics": [{
+        "before": "",
+        "blotter": "Sun",
+        "after": "is shining, the weather is sweet.",
+        "img": "image-1.jpg",
+        "credit": "Finley Quaye"
+    }, {
+        "before": "You can feel it on the streets, on a day like this, the ",
+        "blotter": "Heat",
+        "after": "It feels like summer.",
+        "img": "image-2.jpg",
+        "credit": "Childish Gambino"
+    }, {
+        "before": "I keep hoping we’ll eat cake by the",
+        "blotter": "Ocean",
+        "after": "",
+        "img": "image-3.jpg",
+        "credit": "Dnce"
+    }, {
+        "before": "You’re showing your colour, like a setting",
+        "blotter": "Sun",
+        "after": "",
+        "img": "image-2.jpg",
+        "credit": "The Chemical Brothers"
+    }]
+}

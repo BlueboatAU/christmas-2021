@@ -2,16 +2,21 @@
 <div class="clicker">
 
 
-      <div class="slider" data-images='["/image-1.jpg","/image-2.jpg","/image-3.jpg"]'>
+      <div class="slider" data-images='["/image-1.jpg","/image-2.jpg","/image-3.jpg", "/image-2.jpg"]'>
 
         <div class="slider__canvas"></div>
 
         <div class="slider__titles">
 
-          <div class="slider__title">
-            <h2 class="lyrics">You can feel it on the streets, on a day like this, the <span class="blotter"><span class="blotter__inner">heat</span></span>It feels like summer.</h2>
-            <h3 class="spacing text-uppercase">Childish Gambino</h3>
-          </div>
+          {{ $.Scratch.Set "index" 0 }}
+          {{ range .Site.Data.lyrics.lyrics }}
+            <div class='slider__title{{if eq ($.Scratch.Get "index") 0 }} slider__title--current{{end}}'>
+              <h2 class="lyrics">{{ .before }}<span class="blotter"><span class="blotter__inner">{{ .blotter }}</span></span>{{ .after }}</h2>
+              <h3 class="spacing text-uppercase">{{ .credit }}</h3>
+            </div>
+            {{ $.Scratch.Set "index" (add ($.Scratch.Get "index") 1) }}
+          {{ end }}
+
         </div>
 
 			</div>

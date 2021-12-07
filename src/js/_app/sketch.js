@@ -23,6 +23,7 @@ export class Sketch {
     this.width = this.container.offsetWidth;
     this.height = this.container.offsetHeight;
     this.containerWrap.appendChild(this.renderer.domElement);
+    this.slides = this.container.querySelectorAll('.slider__title')
 
     this.camera = new THREE.PerspectiveCamera(
       70,
@@ -72,9 +73,9 @@ export class Sketch {
       let pos = event.clientY
       let halfHeight = window.innerHeight / 2
       if(pos > halfHeight){
-          this.prev();
+        this.next();
       } else {
-          this.next();
+        this.prev();
       }
     })
   }
@@ -186,6 +187,7 @@ export class Sketch {
       onComplete:()=>{
         console.log('FINISH');
         this.current = (this.current +1)%len;
+        this.setSlide()
         this.material.uniforms.texture1.value = nextTexture;
         this.material.uniforms.progress.value = 0;
         this.isRunning = false;
@@ -205,11 +207,24 @@ export class Sketch {
       duration: this.duration,
       onComplete:()=>{
         console.log('FINISH');
-        this.current = (this.current -1)%len;
+        this.current = (this.current+len-1)%len;
+        this.setSlide()
         this.material.uniforms.texture1.value = nextTexture;
         this.material.uniforms.progress.value = 0;
         this.isRunning = false;
     }})
+  }
+
+  setSlide() {
+    let that = this
+    this.slides.forEach(function(slide, index) {
+      if(index == that.current){
+        console.log(index, that.current)
+        slide.classList.add('slider__title--current')
+      } else {
+        slide.classList.remove('slider__title--current')
+      }
+    })
   }
   
   render() {

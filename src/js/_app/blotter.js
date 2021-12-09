@@ -1,6 +1,6 @@
 export const blotterSetup = () => {
 
-    const body = document.body;
+const body = document.body;
 const docEl = document.documentElement;
 
 const MathUtils = {
@@ -17,12 +17,14 @@ const MathUtils = {
     }
 };
 
-let winsize;
+    let winsize;
     const calcWinsize = () => winsize = {width: window.innerWidth, height: window.innerHeight};
     calcWinsize();
     window.addEventListener('resize', calcWinsize);
 
+
     const getMousePos = (ev) => {
+
         let posx = 0;
         let posy = 0;
         if (!ev) ev = window.event;
@@ -34,11 +36,12 @@ let winsize;
             posx = ev.clientX + body.scrollLeft + docEl.scrollLeft;
             posy = ev.clientY + body.scrollTop + docEl.scrollTop;
         }
-        return {x: posx, y: posy};
+
+        window.mousePos = {x: posx, y: posy};
     }
 
-    let mousePos = {x: winsize.width/2, y: winsize.height/2};
-    window.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
+    window.mousePos = {x: winsize.width/2, y: winsize.height/2};
+    window.addEventListener('mousemove', ev => { getMousePos(ev) });
 
     const canvas = document.querySelector('.slider__canvas')
     const allTitles = document.querySelectorAll('.slider__title')
@@ -83,7 +86,7 @@ let winsize;
         
         const render = () => {
             const docScrolls = {left : body.scrollLeft + docEl.scrollLeft, top : body.scrollTop + docEl.scrollTop};
-            const relmousepos = {x : mousePos.x - docScrolls.left, y : mousePos.y - docScrolls.top };
+            const relmousepos = {x : window.mousePos.x - docScrolls.left, y : window.mousePos.y - docScrolls.top };
             const mouseDistance = MathUtils.distance(lastMousePosition.x, relmousepos.x, lastMousePosition.y, relmousepos.y);
             
             volatility = MathUtils.lerp(volatility, Math.min(MathUtils.lineEq(0.9, 0, 100, 0, mouseDistance),0.9), 0.05);

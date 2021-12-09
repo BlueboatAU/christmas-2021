@@ -18,6 +18,7 @@ $cursor-size: 70px;
     justify-content: center;
     text-align: center;
     font-size: #{$cursor-size * 0.21};
+    opacity: 0;
     @include media-breakpoint-down(sm){
       display: none;
     }
@@ -25,4 +26,10 @@ $cursor-size: 70px;
         position: absolute;
         z-index: 103;
     }
+}
+
+[data-hide-cursor]{
+  *{
+    pointer-events: none;
   }
+}

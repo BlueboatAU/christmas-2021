@@ -37,7 +37,9 @@ const MathUtils = {
             posy = ev.clientY + body.scrollTop + docEl.scrollTop;
         }
 
-        window.mousePos = {x: posx, y: posy};
+        let elementMouseIsOver = document.elementFromPoint(posx, posy)
+
+        window.mousePos = {x: posx, y: posy, el: elementMouseIsOver};
     }
 
     window.mousePos = {x: winsize.width/2, y: winsize.height/2};

@@ -25,6 +25,7 @@ export class Sketch {
     this.containerWrap.appendChild(this.renderer.domElement);
     this.slides = this.container.querySelectorAll('.slider__title')
     this.nav = document.querySelectorAll('.nav__item')
+    this.popover = document.querySelector('.popover')
 
     this.camera = new THREE.PerspectiveCamera(
       70,
@@ -70,7 +71,10 @@ export class Sketch {
   }
 
   clickEvent(){
-    this.clicker.addEventListener('click',(event)=>{
+    let that = this
+
+    //mouse clicker
+    this.clicker.addEventListener('click', (event)=>{
       let pos = event.clientX
       let halfWidth = window.innerWidth / 2
       if(pos > halfWidth){
@@ -83,7 +87,24 @@ export class Sketch {
         }
       }
     })
+
+    //nav clicker
+    this.nav.forEach(function(navItem, index){
+      navItem.addEventListener('click', (event) =>{
+        event.stopPropagation()
+        that.goToSlide(index)
+      })
+    })
+
+    //other links
+    document.querySelectorAll('[data-hide-cursor]').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.stopPropagation()
+      })
+    })
+
   }
+
   settings() {
     let that = this;
     if(this.debug) this.gui = new dat.GUI();
@@ -179,31 +200,19 @@ export class Sketch {
   }
 
   next(){
-    if(this.isRunning) return;
-    this.isRunning = true;
     let len = this.textures.length;
-    let nextTexture =this.textures[(this.current +1)%len];
-    this.material.uniforms.texture2.value = nextTexture;
-    let tl = gsap.timeline()
-    tl.to(this.material.uniforms.progress,{
-     duration: this.duration,
-      value:1,
-      ease: this.easing,
-      onStart: () => {
-        this.current = (this.current +1)%len;
-        this.hideSlides()
-      },
-      onComplete:()=>{
-        this.material.uniforms.texture1.value = nextTexture;
-        this.material.uniforms.progress.value = 0;
-    }})
+    this.goToSlide((this.current +1)%len)
   }
 
   prev(){
-    if(this.isRunning) return;
-    this.isRunning = true;
     let len = this.textures.length;
-    let nextTexture =this.textures[(this.current+len-1)%len];
+    this.goToSlide((this.current+len-1)%len)
+  }
+
+  goToSlide(slideNumber) {
+    if(this.isRunning || window.popOpen || this.current == slideNumber) return;
+    this.isRunning = true;
+    let nextTexture = this.textures[slideNumber];
     this.material.uniforms.texture2.value = nextTexture;
     let tl = gsap.timeline();
     tl.to(this.material.uniforms.progress,{
@@ -211,7 +220,7 @@ export class Sketch {
       ease: this.easing,
       duration: this.duration,
       onStart: () => {
-        this.current = (this.current+len-1)%len;
+        this.current = slideNumber;
         this.hideSlides()
       },
       onComplete:()=>{
@@ -236,6 +245,8 @@ export class Sketch {
     this.slides.forEach(function(slide, index) {
       if(index == that.current){
         slide.classList.add('slider__title--current')
+        let newBG = decodeURIComponent(slide.getAttribute('data-background'))
+        gsap.to(that.clicker, {background: newBG})
       } else {
         slide.classList.remove('slider__title--current')
       }
@@ -257,6 +268,15 @@ export class Sketch {
       slide.classList.remove('hidden')
     })
     this.isRunning = false;
+  }
+
+  openPopover(){
+    window.popOpen = true
+    
+  }
+
+  closePopover(){
+    window.popOpen = false
   }
   
   render() {

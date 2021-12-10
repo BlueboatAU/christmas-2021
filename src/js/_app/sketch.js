@@ -80,6 +80,8 @@ export class Sketch {
       if(pos > halfWidth){
         if(this.current < this.slides.length - 1){
           this.next();
+        } else if (this.current == 3) {
+          this.openPopover()
         }
       } else {
         if(this.current > 0){
@@ -100,6 +102,26 @@ export class Sketch {
     document.querySelectorAll('[data-hide-cursor]').forEach((item) => {
       item.addEventListener('click', (event) => {
         event.stopPropagation()
+      })
+    })
+
+    //open popover
+    document.querySelectorAll('[data-open-popover]').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.stopPropagation()
+        this.openPopover()
+      })
+    })
+
+    //close popover
+    document.querySelectorAll('[data-close-popover]').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.stopPropagation()
+        this.closePopover()
+        let attr = event.target.getAttribute('data-close-popover')
+        if(attr.length > 0) {
+          this.goToSlide(parseInt(attr))
+        }
       })
     })
 
@@ -211,6 +233,7 @@ export class Sketch {
 
   goToSlide(slideNumber) {
     if(this.isRunning || window.popOpen || this.current == slideNumber) return;
+    if(slideNumber < 0 || slideNumber > this.textures.length - 1) return;
     this.isRunning = true;
     let nextTexture = this.textures[slideNumber];
     this.material.uniforms.texture2.value = nextTexture;
@@ -272,11 +295,12 @@ export class Sketch {
 
   openPopover(){
     window.popOpen = true
-    
+    gsap.to(this.popover, {autoAlpha: 1, duration: 0.5})
   }
 
   closePopover(){
     window.popOpen = false
+    gsap.to(this.popover, {autoAlpha: 0, duration: 0.5})
   }
   
   render() {

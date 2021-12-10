@@ -45,7 +45,7 @@ const updateCursor = () => {
         } else {
             gsap.to(inner,{rotation: -90})
             if(window.sketch){
-                if(window.sketch.current > 2){
+                if(window.sketch.current > 3){
                     gsap.to(inner, {autoAlpha: 0})
                 } else {
                     gsap.to(inner, {autoAlpha: 1})

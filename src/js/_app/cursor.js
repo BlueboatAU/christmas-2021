@@ -54,13 +54,17 @@ const updateCursor = () => {
         }
         
         //control outer
-        if(!cursor.classList.contains('active')){
-            gsap.to(cursor, {autoAlpha: 1, duration: 2, onComplete: () => { showHide = true }})
-            cursor.classList.add('active')
-        } else if(showHide && window.mousePos.el && window.mousePos.el.nodeType && window.mousePos.el.hasAttribute('data-hide-cursor')){
-            gsap.to(cursor, {autoAlpha: 0, duration: 0.5})
-        } else if(showHide) {
-            gsap.to(cursor, {autoAlpha: 1, duration: 0.5})
+        if(window.innerWidth > 768){
+            if(!cursor.classList.contains('active')){
+                gsap.to(cursor, {autoAlpha: 1, duration: 2, onComplete: () => { showHide = true }})
+                cursor.classList.add('active')
+            } else if(showHide && window.mousePos.el && window.mousePos.el.nodeType && window.mousePos.el.hasAttribute('data-hide-cursor')){
+                gsap.to(cursor, {autoAlpha: 0, duration: 0.5})
+            } else if(showHide) {
+                gsap.to(cursor, {autoAlpha: 1, duration: 0.5})
+            }
+        } else {
+            gsap.set(cursor, {autoAlpha: 0})
         }
     }
 

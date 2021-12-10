@@ -85,6 +85,10 @@ body.loaded {
   font-family: $font-block;
   display: block;
   text-transform: uppercase;
+  @include media-breakpoint-down(md){
+    font-size: 80px;
+    line-height: 115%;
+  }
 }
 
 .lyrics{
@@ -92,6 +96,10 @@ body.loaded {
   line-height: 100%;
   font-family: $font-serif;
   text-align: center;
+  @include media-breakpoint-down(md){
+    font-size: 28px;
+    line-height: 100%;
+  }
   &>span{
     @extend .lyric-inner;
   }
@@ -132,10 +140,13 @@ body.loaded {
 
 
 .clicker {
+  position: fixed !important;
+  top: 0;
+  left: 0;
 	display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 	position: relative;
 	justify-content: space-around;
@@ -149,11 +160,18 @@ body.loaded {
   width: 100%;
   max-width: 800px;
   position: relative;
+  @include media-breakpoint-down(sm){
+    max-height: 55vh;
+  }
   &__canvas {
     border-top-left-radius: 200px;
     border-bottom-right-radius: 200px;
     overflow: hidden;
     margin: 0 auto;
+    @include media-breakpoint-down(sm){
+      border-top-left-radius: 100px;
+      border-bottom-right-radius: 100px;
+    }
   }
   &__titles{
     height: 100%;
@@ -177,6 +195,9 @@ body.loaded {
     @include transition(0.3s);
     h2{
       margin-bottom: 35px;
+      @include media-breakpoint-down(sm){
+        margin-bottom: 10px;
+      }
     }
     &--current{
       display: block;
@@ -192,6 +213,12 @@ body.loaded {
   position: relative;
   width: 100%;
   height: 120px;
+  @include media-breakpoint-down(lg){
+    height: 100px;
+  }
+  @include media-breakpoint-down(sm){
+    height: 70px;
+  }
   &__inner{
     display: flex;
     align-items: center;
@@ -210,7 +237,10 @@ body.loaded {
   appearance: none;
   border: none;
   background-color: $colour-salmon;
-  font-size: 18px;
+  font-size: 15px;
+  @include media-breakpoint-up(sm){
+    font-size: 18px;
+  }
   font-weight: 700;
   line-height: 100%;
   padding: 0;
@@ -225,6 +255,9 @@ body.loaded {
   }
   &__inner{
     padding: 16px 38px;
+    @media (max-width: 470px){
+      padding: 14px 20px;
+    }
   }
   &__hover{
     position: absolute;
@@ -292,6 +325,16 @@ body.loaded {
   }
 }
 
+.brilliant-svg{
+  width: auto;
+  @include media-breakpoint-down(lg){
+    height: 15px;
+  }
+  @include media-breakpoint-down(sm){
+    height: 10px;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Navigation
@@ -301,7 +344,8 @@ body.loaded {
   display: inline-flex;
   flex-wrap: nowrap;
   position: relative;
-  margin-right: 62px;
+  // margin-right: 62px;
+
   &:after{
     position: absolute;
     content: "";

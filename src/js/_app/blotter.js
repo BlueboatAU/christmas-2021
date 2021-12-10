@@ -51,6 +51,8 @@ const MathUtils = {
 
     const elem = document.querySelectorAll('.blotter');
     const blotters = []
+
+    let smText = 50, mdText = 80, lgText = 100;
     
     const createBlotterText = () => {
 
@@ -60,15 +62,26 @@ const MathUtils = {
             let textEl = el.querySelector('.blotter__inner');
             let textElStyle = window.getComputedStyle(textEl);
 
+            let textSize = lgText
+
+            if(window.innerWidth < 370){
+                textSize = smText
+            } else if (window.innerWidth < 768){ 
+                textSize = mdText
+            } else {
+                textSize = lgText
+            }
+
             let text = new Blotter.Text(textEl.innerHTML.toUpperCase(), {
                 family : "'Days One', sans-serif",
                 weight: 900,
-                size : 100,
+                size : textSize,
                 paddingLeft: 100,
                 paddingRight: 100,
                 paddingTop: 100,
                 paddingBottom: 100,
-                fill : textElStyle.getPropertyValue('color')
+                fill : textElStyle.getPropertyValue('color'),
+                needsUpdate: true
             });
         
             const material = new Blotter.LiquidDistortMaterial();
@@ -91,19 +104,45 @@ const MathUtils = {
             const relmousepos = {x : window.mousePos.x - docScrolls.left, y : window.mousePos.y - docScrolls.top };
             const mouseDistance = MathUtils.distance(lastMousePosition.x, relmousepos.x, lastMousePosition.y, relmousepos.y);
             
-            volatility = MathUtils.lerp(volatility, Math.min(MathUtils.lineEq(0.9, 0, 100, 0, mouseDistance),0.9), 0.05);
+            //set volitility
+            if(window.innerWidth > 768){
+                volatility = MathUtils.lerp(volatility, Math.min(MathUtils.lineEq(0.9, 0, 100, 0, mouseDistance),0.9), 0.05);
+            } else {
+                volatility = 0.02
+            }
 
+            //find current slide
             let currentBlotterIndex = Array.prototype.indexOf.call(allTitles, document.querySelector('.slider__title--current'));
 
             blotters.forEach(function(blotter, index){
+
+                //volitility only for current
                 if(currentBlotterIndex >= 0 && index === currentBlotterIndex){
                     blotter.material.uniforms.uVolatility.value = volatility;
                 } else {
                     blotter.material.uniforms.uVolatility.value = 0;
                 }
+
+                //update text size
+                let textSize = lgText
+
+                if(window.innerWidth < 370){
+                    textSize = smText
+                } else if (window.innerWidth < 768){ 
+                    textSize = mdText
+                } else {
+                    textSize = lgText
+                }
+                
+                if(textSize != blotter.texts[0].properties.size){
+                    blotter.texts[0].needsUpdate = true           
+                    blotter.texts[0].properties.size = textSize
+                }
+
             })
 
-            if(window.innerWidth > 768){
+            //transform image mask
+            if(window.innerWidth > 992){
                 imgTranslations.x = MathUtils.lerp(imgTranslations.x, MathUtils.lineEq(40, -40, winsize.width, 0, relmousepos.x), 0.02);
                 imgTranslations.y = MathUtils.lerp(imgTranslations.y, MathUtils.lineEq(40, -40, winsize.height, 0, relmousepos.y), 0.02);
                 canvas.style.transform = `translateX(${(imgTranslations.x)}px) translateY(${imgTranslations.y}px)`;

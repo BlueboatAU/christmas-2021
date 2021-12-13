@@ -226,6 +226,9 @@ a{
       @include media-breakpoint-down(sm){
         margin-bottom: 10px;
       }
+      @media (max-width:370px){
+        margin-bottom: 0;
+      }
     }
     &--current{
       display: block;
@@ -258,6 +261,9 @@ a{
     height: 100%;
     @include media-breakpoint-down(sm){
       top: 9px;
+    }
+    @media (max-width:370px){
+      top: 3px;
     }
   }
 }

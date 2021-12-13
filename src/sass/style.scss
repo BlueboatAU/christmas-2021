@@ -64,14 +64,21 @@ body {
 }
 
 
-#main-wrapper {
+// #main-wrapper {
+//   opacity: 0;
+//   @include transition(0.5s);
+//   transition-delay: 0.3s;
+// }
+
+canvas{
   opacity: 0;
-  @include transition(0.5s);
-  transition-delay: 0.3s;
 }
 
 body.loaded {
-  #main-wrapper {
+  // #main-wrapper {
+  //   opacity: 1;
+  // }
+  canvas{
     opacity: 1;
   }
 }
@@ -79,6 +86,11 @@ body.loaded {
 h1, h2,h3, h4, h5, h6, p, a{
   font-size: 1rem;
   font-weight: normal;
+  // color: $colour-font-default;
+  // text-decoration: none;
+}
+
+a{
   color: $colour-font-default;
   text-decoration: none;
 }

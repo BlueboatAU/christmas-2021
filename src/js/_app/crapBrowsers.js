@@ -7,7 +7,7 @@ export const crapBrowsers = () => {
      
      if (/MSIE 9/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent)) {
          // This is internet explorer 9 or 11
-         window.location = 'pages/core/ie.htm';
+         window.alert('ie9 or 11')
      }
      
      if (/Edge\/\d./i.test(navigator.userAgent)){

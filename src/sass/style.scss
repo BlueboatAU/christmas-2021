@@ -76,9 +76,11 @@ body.loaded {
   }
 }
 
-h1, h2,h3, h4, h5, h6, p{
+h1, h2,h3, h4, h5, h6, p, a{
   font-size: 1rem;
   font-weight: normal;
+  color: $colour-font-default;
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -365,6 +367,31 @@ h1, h2,h3, h4, h5, h6, p{
   }
 }
 
+.about{
+  background: linear-gradient(270deg, #FFF383 0%, #FEE852 100%);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  p{
+    margin-bottom: 1rem;
+  }
+  &__inner{
+    margin: auto;
+    max-width: 500px;
+  }
+}
 
 /*--------------------------------------------------------------
 # Navigation
@@ -427,4 +454,25 @@ h1, h2,h3, h4, h5, h6, p{
   padding: 15px;
   z-index: 1000;
   background: #fff;
+  background-image: url('/ieimage.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  *{
+    font-size: 20px;
+    color: $white;
+  }
+  p{
+    max-width: 500px;
+    margin: auto;
+  }
+  a{
+    display: block;
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover{
+      text-decoration: none;
+    }
+  }
 }

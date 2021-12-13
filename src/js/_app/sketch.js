@@ -26,6 +26,7 @@ export class Sketch {
     this.slides = this.container.querySelectorAll('.slider__title')
     this.nav = document.querySelectorAll('.nav__item')
     this.popover = document.querySelector('.popover')
+    this.about = document.querySelector('.about')
 
     this.camera = new THREE.PerspectiveCamera(
       70,
@@ -122,6 +123,20 @@ export class Sketch {
         if(attr.length > 0) {
           this.goToSlide(parseInt(attr))
         }
+      })
+    })
+
+    document.querySelectorAll('[data-open-about]').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.stopPropagation()
+        this.openAbout()
+      })
+    })
+
+    document.querySelectorAll('[data-close-about]').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.stopPropagation()
+        this.closeAbout()
       })
     })
 
@@ -301,6 +316,16 @@ export class Sketch {
   closePopover(){
     window.popOpen = false
     gsap.to(this.popover, {autoAlpha: 0, duration: 0.5})
+  }
+
+  openAbout(){
+    window.popOpen = true
+    gsap.to(this.about, {autoAlpha: 1, duration: 0.5})
+  }
+
+  closeAbout(){
+    window.popOpen = false
+    gsap.to(this.about, {autoAlpha: 0, duration: 0.5})
   }
   
   render() {

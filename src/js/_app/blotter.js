@@ -108,7 +108,7 @@ const MathUtils = {
             if(window.innerWidth > 768){
                 volatility = MathUtils.lerp(volatility, Math.min(MathUtils.lineEq(0.9, 0, 100, 0, mouseDistance),0.9), 0.05);
             } else {
-                volatility = 0.02
+                volatility = 0.005
             }
 
             //find current slide

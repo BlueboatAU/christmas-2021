@@ -89,6 +89,10 @@ body.loaded {
     font-size: 80px;
     line-height: 115%;
   }
+  @include media-breakpoint-down(sm){
+    font-size: 50px;
+    line-height: 115%;
+  }
 }
 
 .lyrics{
@@ -169,6 +173,10 @@ body.loaded {
     overflow: hidden;
     margin: 0 auto;
     @include media-breakpoint-down(sm){
+      border-top-left-radius: 150px;
+      border-bottom-right-radius: 150px;
+    }
+    @media (max-width:370px){
       border-top-left-radius: 100px;
       border-bottom-right-radius: 100px;
     }
@@ -228,6 +236,9 @@ body.loaded {
     left: 0;
     width: 100%;
     height: 100%;
+    @include media-breakpoint-down(sm){
+      top: 9px;
+    }
   }
 }
 
@@ -307,13 +318,24 @@ body.loaded {
     max-width: 700px;
     text-align: center;
     margin: 0 auto;
+    @include media-breakpoint-down(sm){
+      font-size: 18px;
+    }
   }
   .lyric-inner{
     color: $colour-bb-blue;
   }
   &__center{
     width: 100%;
-    
+    height: 542px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    @include media-breakpoint-down(sm){
+      max-height: calc(55vh + 42px);
+    }
   }
   &__footer{
     &>*{

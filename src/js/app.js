@@ -11,7 +11,7 @@ import {crapBrowsers} from './_app/crapBrowsers.js'
 const loadHandler = () => {
 
   followCursor()
-  crapBrowsers()
+  // crapBrowsers()
 
 }
 

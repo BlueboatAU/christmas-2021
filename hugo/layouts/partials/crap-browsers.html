@@ -1,0 +1,36 @@
+<script>
+
+function createIE(){
+
+      // create a new div element
+    const newDiv = document.createElement("div");
+
+    newDiv.classList.add('ie-popup')
+
+    // and give it some content
+    const newContent = document.createTextNode("For the best experience please visit this site using a modern browser like Google Chrome or Firefox");
+
+    // add the text node to the newly created div
+    newDiv.appendChild(newContent);
+
+    document.body.appendChild(newDiv);
+
+}
+
+
+    if (/MSIE 10/i.test(navigator.userAgent)) {
+        // This is internet explorer 10
+        createIE()
+     }
+     
+     if (/MSIE 9/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent)) {
+         // This is internet explorer 9 or 11
+         createIE()
+     }
+     
+     if (/Edge\/\d./i.test(navigator.userAgent)){
+        // This is Microsoft Edge
+        createIE()
+     }
+
+</script>

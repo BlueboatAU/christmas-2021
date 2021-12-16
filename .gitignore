@@ -2,6 +2,8 @@
 # hugo
 hugo/public/
 hugo/assets/dist/
+hugo/resources/_gen/
+.hugo_build.lock
 
 # Dependency directories
 node_modules/

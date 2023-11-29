@@ -1,35 +1,40 @@
 {
-    "lyrics": [{
-        "before": "",
-        "blotter": "Sun",
-        "after": "is shining, the weather is sweet.",
-        "img": "image-1.jpg",
-        "credit": "Finley Quaye",
-        "class": "text-yellow",
-        "background": "linear-gradient(45deg, #FFF383 0%, #FEE852 100%)"
-    }, {
-        "before": "You can feel it on the streets, on a day like this, the ",
-        "blotter": "Heat",
-        "after": "It feels like summer.",
-        "img": "image-4.jpg",
-        "credit": "Childish Gambino",
-        "class": "text-red",
-        "background": "linear-gradient(45deg, #F8F7F2 0%, #F9F7EE 100%)"
-    }, {
-        "before": "Stars come out, I’m finally free, it’s only the",
-        "blotter": "Ocean",
-        "after": "and me.",
-        "img": "image-3.jpg",
-        "credit": "Jack Johnson",
-        "class": "text-blue",
-        "background": "linear-gradient(45deg, #C0DDEE 0%, #D7E5EF 100%)"
-    }, {
-        "before": "You’re showing your colour, like a setting",
-        "blotter": "Sun",
-        "after": "",
-        "img": "image-2.jpg",
-        "credit": "The Chemical Brothers",
-        "class": "text-orange",
-        "background": "linear-gradient(45deg, #FAF2E2 0%, #FFF1A7 100%)"
-    }]
+  "lyrics": [
+    {
+      "before": "Tropic haze",
+      "blotter": "pineapple",
+      "after": "sky perfect wave",
+      "img": "image-1.jpg",
+      "credit": "Blondie",
+      "class": "text-lime",
+      "background": "linear-gradient(45deg, #FFF383 0%, #FEE852 100%)"
+    },
+    {
+      "before": "Ripping down a <br/> track in my old",
+      "blotter": "Troopy",
+      "after": "Wildflowers blooming with the smell of the sea",
+      "img": "image-2.jpg",
+      "credit": "Xavier Rudd",
+      "class": "text-orange",
+      "background": "linear-gradient(45deg, #F8F7F2 0%, #F9F7EE 100%)"
+    },
+    {
+      "before": "Tastes like strawberries <br/> on a",
+      "blotter": "summer",
+      "after": "evenin’",
+      "img": "image-3.jpg",
+      "credit": "Harry Styles",
+      "class": "text-off-white",
+      "background": "linear-gradient(45deg, #C0DDEE 0%, #D7E5EF 100%)"
+    },
+    {
+      "before": "Summer",
+      "blotter": "breeze",
+      "after": "is blowing through your hair",
+      "img": "image-4.jpg",
+      "credit": "Emilíana Torrini",
+      "class": "text-yellow-alt",
+      "background": "linear-gradient(45deg, #FAF2E2 0%, #FFF1A7 100%)"
+    }
+  ]
 }

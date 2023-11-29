@@ -14,12 +14,9 @@ Author URI: https://blueboat.com.au
 @import "_sass/reset.scss";
 @import "_sass/boostrap";
 
-
 //BB Imports
 @import "_sass/mixins";
 @import "_sass/variables";
-
-
 
 /*--------------------------------------------------------------
 # Globals & Helpers
@@ -63,14 +60,13 @@ body {
   min-height: 60vh;
 }
 
-
 // #main-wrapper {
 //   opacity: 0;
 //   @include transition(0.5s);
 //   transition-delay: 0.3s;
 // }
 
-canvas{
+canvas {
   opacity: 0;
 }
 
@@ -78,19 +74,26 @@ body.loaded {
   // #main-wrapper {
   //   opacity: 1;
   // }
-  canvas{
+  canvas {
     opacity: 1;
   }
 }
 
-h1, h2,h3, h4, h5, h6, p, a{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
   font-size: 1rem;
   font-weight: normal;
   // color: $colour-font-default;
   // text-decoration: none;
 }
 
-a{
+a {
   color: $colour-font-default;
   text-decoration: none;
 }
@@ -98,83 +101,93 @@ a{
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-.lyric-inner{
+.lyric-inner {
   font-size: 100px;
   line-height: 115%;
   font-family: $font-block;
   display: block;
   text-transform: uppercase;
-  @include media-breakpoint-down(md){
+  @include media-breakpoint-down(md) {
     font-size: 80px;
     line-height: 115%;
   }
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     font-size: 50px;
     line-height: 115%;
   }
 }
 
-.lyrics{
+.lyrics {
   font-size: 54px;
   line-height: 100%;
   font-family: $font-serif;
   text-align: center;
-  @include media-breakpoint-down(md){
+  @include media-breakpoint-down(md) {
     font-size: 28px;
     line-height: 100%;
   }
-  &>span{
+  & > span {
     @extend .lyric-inner;
   }
 }
 
-
-.small{
+.small {
   font-size: 10px;
 }
 
-.spacing{
+.spacing {
   letter-spacing: 0.25em;
 }
 
-.text-yellow{
+.text-lime {
+  color: $colour-text-lime;
+}
+
+.text-yellow {
   color: $colour-text-yellow;
 }
 
-.text-red{
+.text-yellow-alt {
+  color: $colour-text-yellow-alt;
+}
+
+.text-red {
   color: $colour-text-red;
 }
 
-.text-blue{
+.text-blue {
   color: $colour-text-blue;
 }
 
-.text-orange{
+.text-orange {
   color: $colour-text-orange;
 }
 
-.text-b-orange{
+.text-b-orange {
   color: $colour-burnt-orange;
+}
+
+.text-off-white {
+  color: $off-white;
 }
 
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
 
-
 .clicker {
   position: fixed !important;
   top: 0;
   left: 0;
-	display: flex;
+  display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-	height: 100%;
-	width: 100%;
-	position: relative;
-	justify-content: space-around;
-	align-items: center;
-	cursor: pointer;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
   padding: 15px;
 }
 
@@ -184,7 +197,7 @@ a{
   max-height: 70vh;
   max-width: 800px;
   position: relative;
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     max-height: 55vh;
   }
   &__canvas {
@@ -192,16 +205,16 @@ a{
     border-bottom-right-radius: 200px;
     overflow: hidden;
     margin: 0 auto;
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
       border-top-left-radius: 150px;
       border-bottom-right-radius: 150px;
     }
-    @media (max-width:370px){
+    @media (max-width: 370px) {
       border-top-left-radius: 100px;
       border-bottom-right-radius: 100px;
     }
   }
-  &__titles{
+  &__titles {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -212,7 +225,7 @@ a{
     align-items: center;
     justify-content: center;
   }
-  &__title{
+  &__title {
     max-width: 730px;
     padding: 15px 30px;
     margin: 0 auto;
@@ -221,36 +234,36 @@ a{
     opacity: 1;
     transform: scale(1);
     @include transition(0.3s);
-    h2{
+    h2 {
       margin-bottom: 35px;
-      @include media-breakpoint-down(sm){
+      @include media-breakpoint-down(sm) {
         margin-bottom: 10px;
       }
-      @media (max-width:370px){
+      @media (max-width: 370px) {
         margin-bottom: 0;
       }
     }
-    &--current{
+    &--current {
       display: block;
     }
-    &.hidden{
+    &.hidden {
       transform: scale(0.9);
       opacity: 0;
     }
   }
 }
 
-.blotter{
+.blotter {
   position: relative;
   width: 100%;
   height: 120px;
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(lg) {
     height: 100px;
   }
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     height: 70px;
   }
-  &__inner{
+  &__inner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -259,23 +272,24 @@ a{
     left: 0;
     width: 100%;
     height: 100%;
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
       top: 9px;
     }
-    @media (max-width:370px){
+    @media (max-width: 370px) {
       top: 3px;
     }
   }
 }
 
-@import './_sass/cursor.scss';
+@import "./_sass/cursor.scss";
 
-.btn{
+.btn {
   appearance: none;
   border: none;
-  background-color: $colour-salmon;
+  background: $colour-green;
+
   font-size: 15px;
-  @include media-breakpoint-up(sm){
+  @include media-breakpoint-up(sm) {
     font-size: 18px;
   }
   font-weight: 700;
@@ -287,16 +301,21 @@ a{
   display: inline-block;
   overflow: hidden;
   @include transition(0.23s);
-  *{
+  * {
     @include transition(0.23s);
   }
-  &__inner{
+  &__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
     padding: 16px 38px;
-    @media (max-width: 470px){
+    gap: 10px;
+    @media (max-width: 470px) {
       padding: 14px 20px;
     }
   }
-  &__hover{
+  &__hover {
     position: absolute;
     top: 0;
     left: 0;
@@ -309,27 +328,27 @@ a{
     align-items: center;
     padding: 5px;
   }
-  &:hover{
-    background: $colour-green;
-    .btn__inner{
+  &:hover {
+    background-color: $colour-salmon;
+    .btn__inner {
       transform: translateY(101%);
     }
-    .btn__hover{
+    .btn__hover {
       transform: translateY(0);
     }
   }
 }
 
-.popover{
-  background: linear-gradient(270deg, #DFEAED 0%, #DCEAF0 99.65%);
+.popover {
+  background: linear-gradient(270deg, #dfeaed 0%, #dceaf0 99.65%);
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
-	align-items: center;
-	height: 100%;
-	width: 100%;
-	cursor: pointer;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
   padding: 15px;
   position: fixed;
   top: 0;
@@ -338,20 +357,20 @@ a{
   opacity: 0;
   visibility: hidden;
 
-  h3{
+  h3 {
     font-size: 34px;
     line-height: 190%;
     max-width: 700px;
     text-align: center;
     margin: 0 auto;
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
       font-size: 18px;
     }
   }
-  .lyric-inner{
+  .lyric-inner {
     color: $colour-bb-blue;
   }
-  &__center{
+  &__center {
     width: 100%;
     height: 500px;
     max-height: 70vh;
@@ -360,13 +379,13 @@ a{
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
       max-height: calc(55vh + 42px);
       height: 542px;
     }
   }
-  &__footer{
-    &>*{
+  &__footer {
+    & > * {
       flex: 1;
       display: flex;
       justify-content: center;
@@ -375,26 +394,26 @@ a{
   }
 }
 
-.brilliant-svg{
+.brilliant-svg {
   width: auto;
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(lg) {
     height: 15px;
   }
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     height: 10px;
   }
 }
 
-.about{
-  background: linear-gradient(270deg, #FFF383 0%, #FEE852 100%);
+.about {
+  background: linear-gradient(270deg, #fff383 0%, #fee852 100%);
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
-	align-items: center;
-	height: 100%;
-	width: 100%;
-	cursor: pointer;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
   padding: 15px;
   position: fixed;
   top: 0;
@@ -402,10 +421,10 @@ a{
   z-index: 10;
   opacity: 0;
   visibility: hidden;
-  p{
+  p {
     margin-bottom: 1rem;
   }
-  &__inner{
+  &__inner {
     margin: auto;
     max-width: 500px;
   }
@@ -415,13 +434,13 @@ a{
 # Navigation
 --------------------------------------------------------------*/
 
-.nav{
+.nav {
   display: inline-flex;
   flex-wrap: nowrap;
   position: relative;
   // margin-right: 62px;
 
-  &:after{
+  &:after {
     position: absolute;
     content: "";
     width: 100%;
@@ -431,11 +450,11 @@ a{
     background: $colour-l-blue;
     opacity: 0.25;
   }
-  &__item{
+  &__item {
     display: inline-block;
     padding: 10px;
     position: relative;
-    &:after{
+    &:after {
       position: absolute;
       content: "";
       width: 100%;
@@ -446,8 +465,9 @@ a{
       opacity: 0;
       @include transition(0.25s);
     }
-    &:hover, &.current{
-      &:after{
+    &:hover,
+    &.current {
+      &:after {
         opacity: 1;
       }
     }
@@ -458,8 +478,7 @@ a{
 # Footer
 --------------------------------------------------------------*/
 
-
-.ie-popup{
+.ie-popup {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -472,24 +491,24 @@ a{
   padding: 15px;
   z-index: 1000;
   background: #fff;
-  background-image: url('/ieimage.jpg');
+  background-image: url("/ieimage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  *{
+  * {
     font-size: 20px;
     color: $white;
   }
-  p{
+  p {
     max-width: 500px;
     margin: auto;
   }
-  a{
+  a {
     display: block;
     margin-bottom: 0.5rem;
     text-decoration: underline;
     cursor: pointer;
-    &:hover{
+    &:hover {
       text-decoration: none;
     }
   }

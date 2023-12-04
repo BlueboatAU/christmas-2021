@@ -36,10 +36,10 @@
         class='slider__title{{if eq ($.Scratch.Get "index") 0 }} slider__title--current{{end}} {{ .class }}'
         data-background="{{ .background | safeHTML }}"
       >
-        <h2 class="lyrics">
+        <h2 class="lyrics" style="max-width: 100svw">
           {{ .before | safeHTML }}<span class="blotter"
             ><span class="blotter__inner">{{ .blotter }}</span></span
-          >{{ .after }}
+          >{{ .after | safeHTML }}
         </h2>
         <h3 class="spacing text-uppercase">{{ .credit }}</h3>
       </div>

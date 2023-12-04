@@ -1,9 +1,9 @@
 {
   "lyrics": [
     {
-      "before": "Tropic haze",
-      "blotter": "pineapple",
-      "after": "sky perfect wave",
+      "before": "Tropic haze, pineapple",
+      "blotter": "sky",
+      "after": "perfect wave",
       "img": "image-1.jpg",
       "credit": "Blondie",
       "class": "text-lime",
@@ -30,7 +30,7 @@
     {
       "before": "Summer",
       "blotter": "breeze",
-      "after": "is blowing through your hair",
+      "after": "is blowing through your&nbsp;hair",
       "img": "image-4.jpg",
       "credit": "Emilíana Torrini",
       "class": "text-yellow-alt",

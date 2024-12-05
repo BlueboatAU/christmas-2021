@@ -6,7 +6,7 @@
     publish = "hugo/public/"
 
   # Default build command.
-    command = "npm run netlify"
+    command = "npm run netlify --legacy-peer-deps"
 
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.

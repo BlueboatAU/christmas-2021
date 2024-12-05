@@ -1,40 +1,40 @@
 {
   "lyrics": [
     {
-      "before": "Tropic haze, pineapple",
-      "blotter": "sky",
-      "after": "perfect wave",
-      "img": "image-1.jpg",
-      "credit": "Blondie",
-      "class": "text-lime",
-      "background": "linear-gradient(45deg, #FFF383 0%, #FEE852 100%)"
+      "before": "As we",
+      "blotter": "drift",
+      "after": "into the zone",
+      "img": "surf.jpg",
+      "credit": "weezer",
+      "class": "text-yellow",
+      "background": "linear-gradient(180deg, #BBE0FF 0%, #EAF6FF 100%)"
     },
     {
-      "before": "Ripping down a <br/> track in my old",
-      "blotter": "Troopy",
-      "after": "Wildflowers blooming with the smell of the sea",
-      "img": "image-2.jpg",
-      "credit": "Xavier Rudd",
-      "class": "text-orange",
-      "background": "linear-gradient(45deg, #F8F7F2 0%, #F9F7EE 100%)"
+      "before": "If you knew my",
+      "blotter": "story",
+      "after": "word for word",
+      "img": "fence.jpg",
+      "credit": "Peter Bjorn and John",
+      "class": "text-yellow",
+      "background": "linear-gradient(180deg, #FFF48C 0%, #FFFFEA 100%)"
     },
     {
-      "before": "We've been having",
-      "blotter": "FUN",
-      "after": "all summer long",
-      "img": "image-3.jpg",
-      "credit": "BEACH BOYS",
-      "class": "text-off-white",
-      "background": "linear-gradient(45deg, #C0DDEE 0%, #D7E5EF 100%)"
+      "before": "It's",
+      "blotter": "Friday",
+      "after": "I'm in love",
+      "img": "field.jpg",
+      "credit": "The Cure",
+      "class": "text-yellow",
+      "background": "linear-gradient(90deg, #F7DED7 0%, #F7EEDE 100%)"
     },
     {
-      "before": "Summer",
-      "blotter": "breeze",
-      "after": "is blowing through your&nbsp;hair",
-      "img": "image-4.jpg",
-      "credit": "Emilíana Torrini",
-      "class": "text-yellow-alt",
-      "background": "linear-gradient(45deg, #FAF2E2 0%, #FFF1A7 100%)"
+      "before": "I bless the",
+      "blotter": "rains",
+      "after": "down in Africa",
+      "img": "ocean.jpg",
+      "credit": "TOTO",
+      "class": "text-yellow",
+      "background": "linear-gradient(180deg, #A5B5F1 0%, #FFDCD9 100%)"
     }
   ]
 }
